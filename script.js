@@ -4,8 +4,8 @@ function enterStore() {
     screen.style.opacity = '0';
     screen.style.transition = 'opacity 0.6s ease';
 
-    // Después de 600ms, redirigimos al index.html
+    // Después de 600ms, redirigimos al stopcell.html
     setTimeout(() => {
-        window.location.href = "index.html"; 
+        window.location.href = "stopcell.html"; 
     }, 600);
 }
