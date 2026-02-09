@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000; /* Fondo negro para que no parpadee en blanco al cargar */
+    overflow: hidden; /* Evita que se mueva la pantalla */
+}
+
+#welcome-screen {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.logo-container {
+    position: relative;
+    margin-bottom: 30px;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+.main-logo {
+    width: 350px; 
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.2));
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 1;
+}
+
+.slogan {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    opacity: 0.8;
+}
+
+.enter-btn {
+    background: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    padding: 15px 45px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 2px; /* Bordes más rectos para look tech */
+}
+
+.enter-btn:hover {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.welcome-footer {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.03); opacity: 0.9; }
+}
