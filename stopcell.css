@@ -1,0 +1,404 @@
+/* STOPCELL PREMIUM STYLESHEET */
+
+:root {
+    --red-main: #ff0000;
+    --red-glow: #ff4d4d;
+    --black-pure: #000000;
+    --black-soft: #0a0a0a;
+    --black-card: #121212;
+    --white: #ffffff;
+    --gray-text: #888888;
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--black-pure);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* SCROLLBAR ROJA */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--black-pure); }
+::-webkit-scrollbar-thumb { background: var(--red-main); border-radius: 5px; }
+
+/* PRELOADER ANIMADO */
+#loader {
+    position: fixed;
+    width: 100%; height: 100%;
+    background: var(--black-pure);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease;
+}
+
+.loader-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: var(--white);
+    letter-spacing: 5px;
+}
+
+.loader-logo span { color: var(--red-main); text-shadow: 0 0 15px var(--red-main); }
+
+.scanner {
+    width: 200px;
+    height: 2px;
+    background: var(--red-main);
+    box-shadow: 0 0 15px var(--red-main);
+    margin-bottom: 20px;
+    animation: scan 2s infinite ease-in-out;
+}
+
+@keyframes scan {
+    0%, 100% { transform: scaleX(0.1); opacity: 0.2; }
+    50% { transform: scaleX(1); opacity: 1; }
+}
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid var(--red-main);
+    padding: 20px 0;
+    z-index: 5000;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.red { color: var(--red-main); }
+
+.nav-link {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--white);
+    padding: 10px 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0 5px;
+}
+
+.nav-link.active, .nav-link:hover {
+    border-color: var(--red-main);
+    box-shadow: 0 0 15px var(--red-main);
+    color: var(--red-main);
+}
+
+/* SECCIONES Y ANIMACIÓN DE DESVANECIMIENTO */
+.brand-section {
+    display: none;
+    padding: 150px 5% 80px;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.brand-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-banner {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-banner h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    color: var(--red-main);
+    text-transform: uppercase;
+}
+
+/* GRID DE PRODUCTOS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--black-card);
+    border: 1px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--red-main);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.2);
+}
+
+.img-container {
+    height: 220px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.price {
+    font-size: 2.2rem;
+    color: var(--red-main);
+    font-family: 'Orbitron', sans-serif;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.buy-now {
+    width: 100%;
+    padding: 15px;
+    background: var(--red-main);
+    color: var(--white);
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.buy-now:hover {
+    background: var(--white);
+    color: var(--red-main);
+}
+
+/* FOOTER */
+.footer {
+    background: var(--black-soft);
+    border-top: 2px solid var(--red-main);
+    padding: 60px 5% 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.legal {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.8rem;
+}
+
+/* MEDIA QUERIES PARA MÓVILES */
+@media (max-width: 768px) {
+    .hero-banner h2 { font-size: 2.5rem; }
+    .navbar .container { flex-direction: column; gap: 20px; }
+}
+.ig-btn-animated {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+    animation: pulse-ig 2s infinite;
+}
+
+.ig-btn-animated:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
+}
+
+@keyframes pulse-ig {
+    0% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 39, 67, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); }
+}
+.phone-link {
+    color: #ff0000; /* El color rojo de tu marca */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #ffffff; /* Cambia a blanco al pasar el mouse */
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+}
+.phone-link {
+    color: #25d366; /* Color verde oficial de WhatsApp */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.phone-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(37, 211, 102, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Opcional: añade un puntito verde de "en línea" al lado */
+.phone-link::before {
+    content: "●";
+    margin-right: 5px;
+    font-size: 10px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+.phone-link {
+    color: #25d366; /* Verde WhatsApp */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center; /* Centra el icono con el texto */
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #ffffff;
+    filter: drop-shadow(0 0 5px #25d366);
+    transform: scale(1.05);
+}
+.email-link {
+    color: #ffffff; /* Color blanco por defecto */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.email-link:hover {
+    color: #ff0000; /* Cambia al rojo de tu marca al pasar el mouse */
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    transform: translateX(5px); /* Se mueve un poco a la derecha */
+}
+/* ELIMINAR TODAS LAS ANIMACIONES DE IMÁGENES Y TARJETAS */
+
+/* 1. Forzar que las imágenes no se muevan ni escalen */
+.card img, 
+.img-container img, 
+.brand-section img {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* 2. Evitar que el contenedor oculte partes o cree efectos de zoom */
+.img-container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. Eliminar el movimiento de las tarjetas al pasar el mouse (hover) */
+.card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important; /* Sombra sutil y estática */
+}
+
+/* 4. Si tenías un carrusel o slider automático, esto lo detiene */
+.product-grid, 
+.hero-banner {
+    animation: none !important;
+    transform: none !important;
+}
+/* Tamaño uniforme para todas las imágenes */
+.img-container {
+    width: 100%;
+    height: 250px; /* Altura fija para que todas las filas queden alineadas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Fondo suave para fotos transparentes */
+    overflow: hidden;
+}
+
+.img-container img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ajusta la imagen sin cortarla */
+}
+
+/* Forzar que las tarjetas tengan el mismo alto */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+#btn-top {
+    display: none; /* Se oculta por defecto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #ff0000; /* Rojo de tu marca */
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#btn-top:hover {
+    background-color: #000;
+}
